@@ -1,4 +1,4 @@
-# plankton-vue-firstvds
+# users-vue-firstvds
 
 ## Project setup
 ```
