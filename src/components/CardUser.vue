@@ -1,13 +1,13 @@
 <template>
-    <div v-if="!user.is_hide" class="card">
-      <DialogUpdateUser :user="{ ...user }" />
-      <img class="avatar" :src="user.avatar" />
-      <div>
-        <p>{{ user.id }}</p>
-        <p>{{ user.email }}</p>
-        <p>{{ user.last_name + " " + user.first_name }}</p>
-      </div>
+  <div v-if="!user.is_hide" class="card">
+    <DialogUpdateUser :user="{ ...user }" />
+    <img class="avatar" :src="user.avatar" />
+    <div>
+      <p>{{ user.email }}</p>
+      <p>{{ user.last_name + " " + user.first_name }}</p>
+      <p>{{ ad.company }}</p>
     </div>
+  </div>
 </template>
 
 <script>
@@ -19,8 +19,7 @@ export default {
     DialogUpdateUser,
   },
 
-  props: { user: Object},
-
+  props: { user: Object, ad: Object },
 };
 </script>
 

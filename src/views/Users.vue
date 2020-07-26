@@ -2,7 +2,9 @@
   <div>
     <v-row>
       <v-col cols="12" align-self="center">
-        <p class="green--text px-4">Количество пользователей: {{ countUsers }}</p>
+        <p class="green--text px-4">
+          Количество пользователей: {{ countUsers }}
+        </p>
         <p class="blue--text px-4">Сумма id видимых: {{ sumId }}</p>
         <DialogAddUser class="ml-2" />
       </v-col>
@@ -10,7 +12,7 @@
     <SnackBar :text="snackbarText" v-model="snackbar" />
     <div class="section">
       <div v-for="user in users" :key="user.id">
-        <CardUser :user="user" />
+        <CardUser :user="user" :ad="ad"/>
       </div>
     </div>
   </div>
@@ -33,12 +35,15 @@ export default {
     users: function() {
       return this.$store.getters.onlyVisibleUsers;
     },
+    ad: function() {
+      return this.$store.getters.ad;
+    },
     sumId: function() {
-      return this.$store.getters.sumId
+      return this.$store.getters.sumId;
     },
     countUsers: function() {
       return this.$store.getters.onlyVisibleUsers.length;
-    }
+    },
   },
   data: function() {
     return {
@@ -55,11 +60,11 @@ export default {
   },
   created: function() {
     this.$watch("users", (newUsers) => {
-      newUsers.forEach(user => {
+      newUsers.forEach((user) => {
         if (user.is_hide) {
           this.onUserHide(user);
         }
-      })
+      });
     });
   },
   mounted: function() {

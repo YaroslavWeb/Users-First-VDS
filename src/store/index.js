@@ -68,6 +68,7 @@ export default new Vuex.Store({
     login(context, payload) {
       return fetch(`https://reqres.in/api/login`, {
         method: "POST",
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload),
       })
         .then((response) => response.json())
@@ -87,6 +88,7 @@ export default new Vuex.Store({
     updateUser(context, user) {
       fetch(`https://reqres.in/api/users/${user.id}`, {
         method: "PUT",
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(user),
       })
         .then((response) => response.json())
@@ -97,6 +99,7 @@ export default new Vuex.Store({
     addUser(context, user) {
       fetch("https://reqres.in/api/users", {
         method: "POST",
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(user),
       })
         .then((response) => response.json())
